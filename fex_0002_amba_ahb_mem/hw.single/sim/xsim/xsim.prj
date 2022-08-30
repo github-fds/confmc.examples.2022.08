@@ -1,0 +1,13 @@
+verilog work \
+        -d SIM -d VCD -d VIVADO\
+	-i ../../bench/verilog\
+        -i $CONFMC_HOME/hwlib/gpif2mst/rtl/verilog\
+        -i $BFM_AHB/rtl/verilog\
+        -i ../../../iplib/mem_ahb/rtl/verilog\
+	-i ../../design/verilog\
+           ./sim_define.v\
+           ../../bench/verilog/top.v\
+           $BFM_AHB/rtl/verilog/bfm_ahb_vivado.vm\
+           ../../beh/verilog/gpif2slv.v\
+	   ../../design/verilog/fpga.v\
+           ../../../iplib/mem_ahb/rtl/verilog/mem_ahb.v

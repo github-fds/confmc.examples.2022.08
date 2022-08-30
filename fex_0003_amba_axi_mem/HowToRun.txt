@@ -1,0 +1,63 @@
+[Prerequisites]
+1. CON-FMC board
+2. CON-FMC package installed
+3. FPGA board with FMC connector
+4. Xilinx package: Vivado
+
+[FPGA for Vivado]
+1. Make sure 'XILINX_VIVADO' environemt varialbe indicte the directory of Vivado package
+   - Simply run '$ source /tools/Xilinx/Vivado/2022.1/settings64.sh'
+   E.g., /tools/Xilinx/Vivado/2022.1
+2. Make sure 'CONFMC_HOME' environment variable indicate the directory of CON-FMC package
+   - Simply run '$ source /opt/confmc/2020.06/setting64.sh'
+   E.g., /opt/confmc/2020.06
+3. Simulation
+   - go to "hw.single/sim/xsim"
+   - run "make"
+   - simulation waveform will be ready in 'wave.vcd', which can be displayed using 'gtkwave'.
+4. Logic synthesis and PnR (implementation)
+   - go to "hw.single/pnr/vivado.zed.lpc"
+   - run "make"
+5. Program FPGA
+   - connect USB to CON-FMC
+   - connect USB-to-JTAG
+   - download bit-stream
+      . go to  "hw.single/pnr/vivado.zed.lpc/download"
+      . run "make"
+6. Running C program along with FPGA through CON-FMC
+   - compile and run
+      . go to "sw.native/test_mem"
+      . run 'make cleanup; make run'
+
+[FPGA for ISE]
+Note that ISE version may be have problem due to deprecated features,
+if so, please contact at Future Design Systems.
+1. Make sure 'XILINX' environemt varialbe indicte the directory of ISE package
+   - Simply run '$ source /opt/Xilinx/14.7/ISE_DS/settings64.sh'
+   E.g., /opt/Xilinx/14.7/ISE_DS/ISE
+2. Make sure 'CONFMC_HOME' environment variable indicate the directory of CON-FMC package
+   - Simply run '$ source /opt/confmc/2020.06/setting64.sh'
+   E.g., /opt/confmc/2020.06
+3. Simulation
+   - go to "hw.single/sim/modelsim.ise"
+   - run "make"
+4. Logic synthesis, where 'v6' should be changed according to the FPGA family
+   - go to "hw.single/syn/xst.v6"
+   - run "make"
+5. PnR
+   - go to "hw.single/pnr/ise.ml605.lpc"
+   - run "make"
+6. Program FPGA
+   - connect USB to CON-FMC
+   - connect USB-to-JTAG
+   - download bit-stream
+      . go to  "hw.single/pnr/ise.ml605.lpc/download"
+      . run "make"
+7. Running C program along with FPGA through CON-FMC
+   - compile and run
+      . go to "sw.native/test_mem"
+      . run 'make cleanup; make run'
+
+Have fun.
+Ando
+2022.08.20.
