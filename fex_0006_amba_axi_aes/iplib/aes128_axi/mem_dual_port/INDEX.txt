@@ -1,0 +1,26 @@
+
+data/                ROM coefficients
+
+bram_dual_port_8x512/    8-bit data 512-entry bram
+sbox_dual_port_8x512/    8-bit data 512-entry rom with InitSboxHex.coe
+sibox_dual_port_8x512/   8-bit data 512-entry rom with InitSiBoxHex.coe
+
+Use following features for bram_dual_port_8x512
+* True Dual Port
+* single clock (common clock)
+* 8-bit data
+* 512-depth
+* no byte enable
+* write-first
+* NO primitives output register
+
+
+Use following features for sbox_
+* Dual port romj
+* single clock (common clock)
+* 8-bit width 512-depth
+* Use ENA/ENB pin
+* NO primitives output register
+* Coe File for Vivado: IniSboxHex.coe or InitSiboxHex.coe
+ 
+

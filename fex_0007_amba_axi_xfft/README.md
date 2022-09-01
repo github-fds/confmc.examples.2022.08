@@ -66,6 +66,11 @@ If it is not installed, install it as follows.
 
     $ sudo apt-get install libusb-1.0.0-dev
 
+### 1.5 Zedboard Board files
+
+This example assumes that you are using Zedboard. Before proceeding below contents, you will need to install\
+Zedboard board files into where `Vivado` is installed. You can get the files and instructions how to install them from [Install Digiletn's Board Files](https://digilent.com/reference/programmable-logic/guides/install-board-files)
+
 </details>
 
 # 2. Internal design
@@ -552,7 +557,11 @@ XFFT (Xilinx FFT) block uses protected code and it requires the latest simulator
      ```
      $ gtkwave wave.vcd
      ```
-     This step requires VCD viewer, for example GTKwave.
+     This step requires VCD viewer, for example GTKwave. \
+     If you don't have `gtkwave`, you can install it using a below command
+     ```
+     $ sudo apt install gtkwave
+     ```
   5. Check simulation result in terms of data
      ```
      $ make plot
@@ -579,7 +588,8 @@ Following steps are for ZedBoard.
 
 # 6. Running with C program
 
-![Setup](./doc/images/con-fmc-xfft-setup-zedboard.png "Setup ZedBoard")
+| ![Setup](./doc/images/con-fmc-xfft-setup-zedboard.png "Setup ZedBoard")  | ![JTAG Boot mode](./doc/images/zedprog4.jpg "Jumpers for JTAG mode")  |
+|:---:|:---:|
 
 ### 6.1 Vivado case
 This step runs C program along with FPGA board as shown in the picture below.
@@ -739,6 +749,7 @@ see [program Vivado](#program-vivado).
 ---
 ### Author(s)
 * **[Ando Ki](mailto:contact@future-ds.com)** - *Initial work* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
+* **[Chaeeon Lim](mailto:contact@future-ds.com)** - *Updated additional resources* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
 
 ### Acknowledgments
 

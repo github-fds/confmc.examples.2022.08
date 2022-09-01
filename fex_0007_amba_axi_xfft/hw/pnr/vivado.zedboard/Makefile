@@ -75,6 +75,7 @@ clean:
 	-@/bin/rm -f  fsm_encoding.os
 	-@/bin/rm -f  impact_impact.xwbt  impact.xsl webtalk.log
 	-@/bin/rm -rf work
+	-@/bin/rm -rf project_1
 	-@/bin/rm -fr project_1.cache
 	-@/bin/rm -fr project_1.hw
 	-@/bin/rm -fr project_1.ip_user_files
@@ -107,6 +108,7 @@ cleanup clobber: clean
 
 cleanupall: cleanup
 	-@/bin/rm -rf $(WORK)
+	-@/bin/rm -f  fpga.bit
 	-@/bin/rm -f  $(MODULE).bit
 	-@/bin/rm -f  $(MODULE).ltx
 	for D in $(DIRS); do\

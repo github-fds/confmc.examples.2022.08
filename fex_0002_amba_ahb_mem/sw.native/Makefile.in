@@ -98,12 +98,12 @@ else
 endif
 
 DEFINES+=-DTRX_BFM -DTRX_AHB -DRIGOR -DVERBOSE
-CFLAGS+=-Isrc -I${CONFMC_HOME}/hwlib/trx_ahb/api/c
+CFLAGS+=-Isrc -I../../iplib/trx_ahb/api/c
 
 OBJS    = $(SRC:.c=.o)
 
-H_DIR           = src:${CONFMC_HOME}/hwlib/trx_ahb/api/c:$(CONFMC_HOME)/include
-C_DIR           = src:${CONFMC_HOME}/hwlib/trx_ahb/api/c
+H_DIR           = src:../../iplib/trx_ahb/api/c:$(CONFMC_HOME)/include
+C_DIR           = src:../../iplib/trx_ahb/api/c
 
 vpath %.h       $(H_DIR)
 vpath %.c       $(C_DIR)

@@ -1,0 +1,4 @@
+
+ise14/            AXI-FIFO (dual-ready)
+ise14.native/     Native-FIFO
+                  - data valid after 'rd_en'

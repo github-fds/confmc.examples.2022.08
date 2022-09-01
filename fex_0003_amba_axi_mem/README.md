@@ -79,6 +79,11 @@ If it is not installed, install it as follows.
 
     $ sudo apt-get install libusb-1.0.0-dev
 
+### 1.5 Zedboard Board files
+
+This example assumes that you are using Zedboard. Before proceeding below contents, you will need to install\
+Zedboard board files into where `Vivado` is installed. You can get the files and instructions how to install them from [Install Digiletn's Board Files](https://digilent.com/reference/programmable-logic/guides/install-board-files)
+
 </details>
 
 # 2. Internal design
@@ -179,7 +184,11 @@ This example includes RTL simulation and following steps are for ZedBoard.
      ```
      $ gtkwave wave.vcd
      ```
-     This step requires VCD viewer, for example GTKwave.
+     This step requires VCD viewer, for example GTKwave. \
+     If you don't have `gtkwave`, you can install it using a below command
+     ```
+     $ sudo apt install gtkwave
+     ```
 
 You can add or modify testing scenario by updating 'gpif2slv.v' in 'hw.single/beh/verilog' directory.
 </details>
@@ -244,7 +253,10 @@ This step runs C program along with FPGA board as shown in the picture below.
 This example uses the FMC connector on Avnet ZedBoard.
 
 <!-- ![Setup](./doc/images/amba_axi_mem_setup_zedboard.png width="250" "Setup ZedBoard") -->
-<img src='./doc/images/amba_axi_mem_setup_zedboard.png' width='300'>
+
+
+| <img src='./doc/images/amba_axi_mem_setup_zedboard.png' width='300'> | <img src='./doc/images/zedprog4.jpg' width='300'> |
+|:---:|:---:|
 
 <details><summary>Click to expand</summary>
 
@@ -290,10 +302,10 @@ This example uses the FMC connector on Avnet ZedBoard.
         ```
      2. run 'test'
         ```
-        $ ./test -c 0 -m 0:0x8000 -l 4 -v 3
+        $ ./test -c 0 -m 0:0x1000 -l 4 -v 3
         ```
         * '-c 0' should reflect CON-FMC CID.
-        * '-m 0:0x8000' indicates memory testing from 0x0 to 0x8000 upward.
+        * '-m 0:0x1000' indicates memory testing from 0x0 to 0x1000 upward.
         * '-l 4' level of memory test
         * '-v 3' level of verbosity
      3. now follow on-screen instruction
@@ -334,10 +346,10 @@ This example uses the FMC connector on Avnet ZedBoard.
         ```
      2. run 'Project1.exe'
         ```
-        > Project1.exe -c 0 -m 0:0x8000 -l 2 -v 3
+        > Project1.exe -c 0 -m 0:0x1000 -l 2 -v 3
         ```
         * '-c 0' should reflect CON-FMC CID.
-        * '-m 0:0x8000' indicates memory testing from 0x0 to 0x0+0x8000 upward.
+        * '-m 0:0x1000' indicates memory testing from 0x0 to 0x0+0x8000 upward.
         * '-l 2' level of memory test
         * '-v 3' level of verbosity
      3. now follow on-screen instruction
@@ -395,10 +407,10 @@ CON-FMC can be mounted on any FMC and this example uses LPC.
         ```
      2. run 'test'
         ```
-        $ ./test -c 0 -m 0:0x8000 -l 7 -v 3
+        $ ./test -c 0 -m 0:0x1000 -l 7 -v 3
         ```
         * '-c 0' should reflect CON-FMC CID.
-        * '-m 0:0x8000' indicates memory testing from 0x0 to 0x8000 upward.
+        * '-m 0:0x1000' indicates memory testing from 0x0 to 0x8000 upward.
         * '-l 7' level of memory test
         * '-v 3' level of verbosity
      3. now follow on-screen instruction
@@ -461,6 +473,7 @@ see [program Vivado](#program-vivado) or [program Ise](#program-ise).
 ---
 ### Author(s)
 * **[Ando Ki](mailto:contact@future-ds.com)** - *Initial work* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
+* **[Chaeeon Lim](mailto:contact@future-ds.com)** - *Updated additional resources* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
 
 ### Acknowledgments
 

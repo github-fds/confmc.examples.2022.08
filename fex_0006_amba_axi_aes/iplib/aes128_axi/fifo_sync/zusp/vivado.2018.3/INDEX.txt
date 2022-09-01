@@ -1,0 +1,3 @@
+
+fifo_32to128_512/    32-to-128 asynchronous FIFO with 512-entry at 32-bit side
+fifo_128to32_512/    128-to-32 asynchronous FIFO with 512-entry at 32-bit side

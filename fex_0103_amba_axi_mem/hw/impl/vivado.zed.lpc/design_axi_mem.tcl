@@ -44,10 +44,10 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
    create_project -force ${PROJECT_NAME} ${PROJECT_DIR} -part ${PART}
-   set_property BOARD_PART ${BOARD_PART} [current_project]
+#   set_property BOARD_PART ${BOARD_PART} [current_project]
 }
 
-set_property  ip_repo_paths  ${BFM_AXI}/gen_ip/vivado.${FPGA_TYPE} [current_project]
+set_property  ip_repo_paths  ${BFM_AXI}/gen_ip [current_project]
 update_ip_catalog -rebuild
 
 # CHANGE DESIGN NAME HERE

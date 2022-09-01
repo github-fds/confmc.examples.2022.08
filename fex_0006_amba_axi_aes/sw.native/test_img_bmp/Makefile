@@ -107,9 +107,11 @@ pre:
 
 run: $(TARGET)
 	./$(TARGET) -c 0 -i images/lena_512x512.bmp -m 0
-	./$(TARGET) -c 0 -i images/lena_512x512.bmp -m 1
-	./$(TARGET) -c 0 -i images/lena_512x512.bmp -m 2
-	./$(TARGET) -c 0 -i images/lena_512x512.bmp -m 3
+	@echo "Program done, check result images."
+	@ls bmp_*
+# 	./$(TARGET) -c 0 -i images/lena_512x512.bmp -m 1
+# 	./$(TARGET) -c 0 -i images/lena_512x512.bmp -m 2
+# 	./$(TARGET) -c 0 -i images/lena_512x512.bmp -m 3
 
 clean:
 	/bin/rm -fr obj
