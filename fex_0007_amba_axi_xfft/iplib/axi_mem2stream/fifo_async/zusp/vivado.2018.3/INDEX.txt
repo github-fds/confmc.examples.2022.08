@@ -1,0 +1,22 @@
+
+fifo_async_36x256/    {32,4} asynchronous fifo with 256-entry
+                      - 1024 entries in terms of 8-bit buffer
+fifo_async_36x512/    {32,4} asynchronous fifo with 512-entry
+                      - 2048 entries in terms of 8-bit buffer
+fifo_async_17x16/     {1,16} asynchronous fifo with 16-entry
+
+* independent clock
+* standard FIFO
+* first-word fall-through
+* reset pin
+* enable reset synchronization
+* no enable saftety circuit
+* no almost empty
+* almost full
+* valid flag for read port
+* no single programmable full threshold constant
+* no single programmable empty threshold constant
+* use extara logic for more accurate data counts
+* write data count (synched with write clk)
+* read data count (synched with read clk)
+* disable timing violation on cross clock domain registers

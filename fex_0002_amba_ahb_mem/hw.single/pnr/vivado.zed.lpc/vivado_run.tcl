@@ -60,7 +60,7 @@ set rigor   ${RIGOR}
 # Assemble the design source files
 #proc proc_read { {out_dir ${WORK}} {part ${DEVICE}} {module ${MODULE}} { rigor 0 } } {
      set DIR_RTL        "../../design/verilog"
-     set DIR_BFM        "${CONFMC_HOME}/hwlib/trx_ahb"
+     set DIR_BFM        "../../../iplib/trx_ahb"
      set DIR_MEM        "../../../iplib/mem_ahb"
      set DIR_MEM_BRAM   "../../../iplib/mem_ahb/bram_simple_dual_port/z7/${VIVADO_VER}"
      set DIR_XDC        "xdc"
@@ -91,6 +91,7 @@ set rigor   ${RIGOR}
                 ${DIR_RTL}/fpga.v
                 ${DIR_BFM}/rtl/verilog/bfm_ahb_stub.v
                 ${DIR_MEM}/rtl/verilog/bram_ahb.v
+		        ${DIR_MEM}/rtl/verilog/mem_ahb.v
      "
 
      read_xdc "

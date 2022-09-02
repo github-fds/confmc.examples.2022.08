@@ -1,0 +1,41 @@
+================================================================================
+[Cost optimized]
+Spartan-6
+Spartan-7
+Artix-7
+Zynq-7000
+
+[7-series]
+Spartan-7
+Artix-7
+Kintex-7
+Virtex-7
+
+[UltraScale]
+Virtex UltraScale
+Kintex UltraScale
+
+[UltraScale+]
+Virtex UltraScale+
+Kintex UltraScale+
+
+================================================================================
+Process categories
+
+[45nm]
+Spartan-6
+
+[28nm]
+Virtex-7
+Kintex-7
+Artix-7
+Spartan-7
+
+[20nm]
+Virtex UltraScale
+Kintex UltraScale
+
+[16nm]
+Virtex UltraScale+
+Kintex UltraScale+
+

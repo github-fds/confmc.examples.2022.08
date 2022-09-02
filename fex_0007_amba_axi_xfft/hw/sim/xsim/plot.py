@@ -18,14 +18,14 @@ try:
      opts, args = getopt.getopt(sys.argv[1:], "ha:f:s:n:x",
                   ["adc_file=","fft_file=","sample_freq=","sample_num"])
 except:
-     print sys.argv[0], '-a <adc-file> -f <fft-file>'
+     print(sys.argv[0], '-a <adc-file> -f <fft-file>')
      sys.exit(2)
 for opt, arg in opts:
     if opt in ("-h", "--help"):
-       print sys.argv[0], '-a <adc-file> -f <fft-file> -s sample_freq -n sample_num -x'
-       print sys.argv[0], '-a', adc_file, '-f', fft_file, '-i', ifft_file
-       print sys.argv[0], '-s', freq_sample, '-n', num_samples
-       print sys.argv[0], '-x  for hexadecimal'
+       print(sys.argv[0], '-a <adc-file> -f <fft-file> -s sample_freq -n sample_num -x')
+       print(sys.argv[0], '-a', adc_file, '-f', fft_file, '-i', fft_file)
+       print(sys.argv[0], '-s', freq_sample, '-n', num_samples)
+       print(sys.argv[0], '-x  for hexadecimal')
        sys.exit()
     elif opt in ("-a", "--adc_file"):
          adc_file=arg
@@ -49,7 +49,7 @@ def hex2int(hstring, wid=16):
        -8602"""
     m = 1<<(wid-1)
     n = m - 1
-    if int(hstring, 16)>=(1<<wid): print "overflow", hstring
+    if int(hstring, 16)>=(1<<wid): print("overflow", hstring)
     i = int(hstring, 16)
     j = -(i&m) | (i&n)
     return j
@@ -94,7 +94,7 @@ def get_data(file_name):
           values = np.loadtxt(file_name, comments='#', dtype=int,
                               converters={0:lambda s: hex2int(s, wid=bit_width)})
           da = values.flatten('C')
-       else: print "something wong with data_type"
+       else: print( "something wong with data_type")
     elif data_format=='complex':
        if data_type=='real' or data_type=='float':
           values = np.loadtxt(file_name, comments='#', dtype=np.complex)
@@ -104,11 +104,11 @@ def get_data(file_name):
           values = np.loadtxt(file_name, comments='#', dtype=np.complex,
                               converters={0:lambda s: hex_complex_to_int(s, wid=bit_width)})
           da = values.flatten('C')
-       else: print "something wong with data_type"
-    else: print "something wrong with data_format"
+       else: print( "something wong with data_type")
+    else: print( "something wrong with data_format")
     
     if num_samples!=len(da):
-       print "sample number mis-match"
+       print ("sample number mis-match")
 
     return da
 

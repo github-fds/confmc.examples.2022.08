@@ -73,6 +73,11 @@ If it is not installed, install it as follows.
 
     $ sudo apt-get install libusb-1.0.0-dev
 
+### 1.5 Zedboard Board files
+
+This example assumes that you are using Zedboard. Before proceeding below contents, you will need to install\
+Zedboard board files into where `Vivado` is installed. You can get the files and instructions how to install them from [Install Digiletn's Board Files](https://digilent.com/reference/programmable-logic/guides/install-board-files)
+
 </details>
 
 # 2. Internal design
@@ -117,13 +122,45 @@ Following steps are for ZedBoard.
      ```
      $ make
      ```
-  5. run following Vivado Tcl procedure, which is defined in 'run_vivado.tcl'<br />
+  5. run following Vivado Tcl procedure like the below figure, which is defined in 'run_vivado.tcl'<br />
      ```
      syn_impl
      ```
-  6. 'design_axi_mem_wrapper.bit' should be ready in the following directory
-     ```
-     project_design_axi_mem/project_design_axi_mem.runs/impl_1/design_axi_mem_wrapper.bit
+     ![syn_impl command](./doc/images/syn_impl_image.png)
+
+**Notice:**
+
+To proceed this chapter, you may need enough memory space at least 16GB \
+During synthesis or implementation, memory overflow can be occurred with program shutdown.
+
+``` sh
+Gtk-Message: 13:35:05.638: Failed to load module "canberra-gtk-module"
+/tools/Xilinx/Vivado/2022.1/bin/rdiArgs.sh: line 312: 102263 Killed                 "$RDI_PROG" "$@"
+make: *** [Makefile:38: all] Error 137
+```
+
+
+FYI, you can use swapfile to increase memory.
+
+```
+# Turn off using swapfile
+  $ sudo swapoff -v /swapfile
+
+# Reallocate swapfile size
+# You can increase or decrease the size at your will
+  $ sudo fallocate -l 8G /swapfile 
+
+# Create swapfile
+  $ sudo mkswap /swapfile
+
+# Turn on swapfile
+  $ sudo swapon /swapfile
+```
+
+  6. 'design_axi_mem_wrapper.bit' is generated in the working directory
+     ``` sh
+     $ ls design_axi_mem_wrapper.bit
+     design_axi_mem_wrapper.bit
      ```
 
 #### 3.1.1 Notes
@@ -135,7 +172,7 @@ must be added as a new IP through 'Setting->IP->Repository' menu.
 Alternatively, use following Vivado Tcl command, which is already included in 'design_axi_mem.tcl'
 
 ```
-set_property  ip_repo_paths  /opt/confmc/2020.06/hwlib/trx_axi/gen_ip/vivado.z7 [current_project]
+set_property  ip_repo_paths  /opt/confmc/2020.06/hwlib/trx_axi/gen_ip [current_project]
 update_ip_catalog -rebuild
 ```
 </details>
@@ -147,7 +184,9 @@ This step runs C program along with FPGA board as shown in the picture below.
 This example uses the FMC connector on Avnet ZedBoard.
 
 <!-- ![Setup](./doc/images/amba_axi_mem_setup_zedboard.png width="250" "Setup ZedBoard") -->
-<img src='./doc/images/amba_axi_mem_setup_zedboard.png' width='300'>
+
+| <img src='./doc/images/amba_axi_mem_setup_zedboard.png' width='300'> | <img src='./doc/images/zedprog4.jpg' width='300'>  |
+|:---:|:---:|
 
 <details><summary>Click to expand</summary>
 
@@ -210,10 +249,10 @@ This example uses the FMC connector on Avnet ZedBoard.
         ```
      2. run 'test'
         ```
-        $ ./test -c 0 -m 0:0x8000 -l 3 -v 3
+        $ ./test -c 0 -m 0:0x1000 -l 3 -v 3
         ```
         * '-c 0' should reflect CON-FMC CID.
-        * '-m 0:0x8000' indicates memory testing from 0x0 to 0x8000 upward.
+        * '-m 0:0x1000' indicates memory testing from 0x0 to 0x8000 upward.
         * '-l 3' level of memory test
         * '-v 3' level of verbosity
      3. now follow on-screen instruction
@@ -225,6 +264,7 @@ This example uses the FMC connector on Avnet ZedBoard.
 ---
 ### Author(s)
 * **[Ando Ki](mailto:contact@future-ds.com)** - *Initial work* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
+* **[Chaeeon Lim](mailto:contact@future-ds.com)** - *Updated additional resources* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
 
 ### Acknowledgments
 

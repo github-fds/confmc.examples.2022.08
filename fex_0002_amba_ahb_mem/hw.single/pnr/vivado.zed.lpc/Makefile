@@ -44,7 +44,7 @@ export PART         = xc7z020-clg484-1
 export TOP          = fpga
 export BOARD_PART   = avnet.com:zedboard:1.4
 
-export SOURCE       = run_vivado.tcl
+export SOURCE       = vivado_run.tcl
 export RIGOR        = 1
 export GUI         ?= 1
 
@@ -72,6 +72,11 @@ clean:
 	@if [ -d hd_visual ]; then /bin/rm -fr hd_visual; fi
 
 cleanup: clean
+	@/bin/rm   -f  $(TOP).edn
+	@/bin/rm   -fr work
+	@/bin/rm   -f  tight_setup_hold_pins.txt
+
+       	
 
 cleanupall: cleanup
 	@/bin/rm -f  $(TOP).bit

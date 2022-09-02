@@ -1,0 +1,20 @@
+z7         ZYNQ 7000 (ZedBoard, ZC702, ZC706)
+s6
+v6
+vus        Virtex UltraSacle VCU108
+zusp       Zynq UltraSacle+ MPSoC ZCU102
+
+* independent clock
+* native (first-word fall-through)
+* no almost empty
+* almost full
+* valid flag for read port
+* No single programmable full threshold constant
+* No single programmable empty threshold constant
+* use extara logic for more accurate data counts
+* write data count (synched with write clk)
+* read data count (synched with read clk)
+* disable timing violation on cross clock domain registers
+* full flag at reset: 1
+* No enable saftety circuit
+

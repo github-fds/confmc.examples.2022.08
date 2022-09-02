@@ -27,7 +27,7 @@ def mem_test(hdl):
     Rdata = [0x0, 0x0]
     ahb.BfmWrite(hdl, 0x10000000, Wdata, 4, 2, rigor=1)
     ahb.BfmRead (hdl, 0x10000000, Rdata, 4, 2, rigor=1)
-    print Wdata, ":", Rdata
+    print(Wdata, ":", Rdata)
     Wdata = [0x12345678, 0x87654321, 0x11111111, 0x22222222]
     Rdata = [0x0, 0x0, 0x0, 0x0]
 
@@ -50,15 +50,15 @@ def main(prog,argv):
     cid=0
     try: opts, args = getopt.getopt(argv, "hc:",['help','cid='])
     except getopt.GetoptError:
-           print  prog+' -c <card_id>'
+           print (prog+' -c <card_id>')
            sys.exit(2)
     for opt, arg in opts:
         if opt=='-h':
-           print prog+' -c <card_id>'
+           print(prog+' -c <card_id>')
            sys.exit()
         elif opt in ("-c", "--cid"):
              cid = int(arg)
-        else: print "unknown options: "+str(opt); sys.exit(1)
+        else: print("unknown options: "+str(opt)); sys.exit(1)
 
     hdl=confmc.conInit()
     if not hdl: sys.exit(1)

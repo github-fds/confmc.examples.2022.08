@@ -1,0 +1,14 @@
+
+fifo_32to128_256/    32-to-128 asynchronous FIFO with 256-entry at 32-bit side
+fifo_128to32_256/    128-to-32 asynchronous FIFO with 256-entry at 32-bit side
+
+Use following features:
+* Native FIFO
+* Non-symmetric FIFO: 32-to-128 or 128-to-32
+* First-word fall-through
+* No almost full/empty flag
+* Valid flag for read port
+* Use "Single Programmable Full/Empty Threshold Constant"
+* Use extra logic for more accurate Data Counts
+  - Write data count
+  - Read data count

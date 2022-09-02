@@ -44,6 +44,11 @@ This example tests Xilinx FFT.
 
 ![XFFT example](fex_0007_amba_axi_xfft/doc/images/con-fmc-xfft-all.png "XFFT example")
 
+# 7. <a name="AMBA AXI Memory with IP"></a>[fex_0103_amba_axi_mem](fex_0103_amba_axi_mem/README.md)
+This example tests memory using IP-wise project in the FPGA through USB.
+
+![AMBA AXI Memory example](fex_0103_amba_axi_mem/doc/images/amba_axi_mem.png "XFFT example")
+
 ---
 ## Contact
 * <a href="http://www.future-ds.com" target="_blank">**Future Design Systems**</a>

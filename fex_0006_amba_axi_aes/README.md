@@ -66,6 +66,11 @@ If it is not installed, install it as follows.
 
     $ sudo apt-get install libusb-1.0.0-dev
 
+### 1.5 Zedboard Board files
+
+This example assumes that you are using Zedboard. Before proceeding below contents, you will need to install\
+Zedboard board files into where `Vivado` is installed. You can get the files and instructions how to install them from [Install Digiletn's Board Files](https://digilent.com/reference/programmable-logic/guides/install-board-files)
+
 </details>
 
 # 2. Internal design
@@ -93,7 +98,20 @@ The host program runs as follows.
 <details><summary>Click to expand</summary>
 
 ```
-To be added.
+|-- doc                 Document
+|-- hw                  HW part uisng a single FMC
+|   |-- beh                Behavioral model of CON-FMC interface including 'gpif2slv.v'
+|   |-- bench              Test-bench including 'top.v'
+|   |-- design             RTL design including 'fpga.v'
+|   |-- pnr                Placement and routing project
+|   `-- sim                RTL simulation project
+|-- iplib               Required blocks
+|   `-- aes128_axi         AES 128 IP with Memory
+`-- sw.native           SW project using native C/C++
+    |-- test_aes128        Memory testing program
+    |-- test_img_bmp       Memory testing program
+    |-- test_img_cv        Memory testing program
+    `-- test_kat128        Memory testing program
 ```
 </details>
 
@@ -223,7 +241,8 @@ Following steps are for ZedBoard.
 
 # 6. Running with C program
 
-![Setup](./doc/images/con-fmc-aes-setup-zedboard.png "Setup ZedBoard")
+| ![Setup](./doc/images/con-fmc-aes-setup-zedboard.png "Setup ZedBoard")  | ![JTAG Boot mode](./doc/images/zedprog4.jpg "Jumpers for JTAG mode")  |
+|:---:|:---:|
 
 ### 6.1 Vivado case
 This step runs C program along with FPGA board as shown in the picture below.
@@ -291,6 +310,7 @@ This step runs C program along with FPGA board as shown in the picture below.
 ---
 ### Author(s)
 * **[Ando Ki](mailto:contact@future-ds.com)** - *Initial work* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
+* **[Chaeeon Lim](mailto:contact@future-ds.com)** - *Updated additional resources* - <a href="http://www.future-ds.com" target="_blank">Future Design Systems</a>
 
 ### Acknowledgments
 

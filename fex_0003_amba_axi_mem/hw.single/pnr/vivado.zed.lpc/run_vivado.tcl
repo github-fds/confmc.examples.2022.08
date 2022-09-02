@@ -52,3 +52,4 @@ proc syn_impl { } {
     file copy -force ${PROJECT_DIR}/${PROJECT_NAME}.runs/impl_1/${TOP}.bit ${TOP}.bit
 }
 
+syn_impl
